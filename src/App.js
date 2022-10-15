@@ -97,7 +97,7 @@ function reducer( state, action ) {
       if( state.previousEvaluation !== '' ) {
         var previousEvaluation = state.previousEvaluation.toString().split('');
         previousEvaluation.pop();
-        previousEvaluation = previousEvaluation.join('') === '' ? '' : parseInt( previousEvaluation.join('') );
+        previousEvaluation = previousEvaluation.join('') === '' || isNaN( previousEvaluation ) ? '' : parseInt( previousEvaluation.join('') );
         return {
           ...state,
           previousEvaluation:previousEvaluation
